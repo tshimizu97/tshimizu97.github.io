@@ -8,6 +8,10 @@
   max-height: 90vh;
 }
 
+.description {
+  font-size: small;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -28,6 +32,7 @@
 }
 
 .header_right {
+  display: flex;
   float: right;
   flex-direction: row;
   justify-content: flex-end;
@@ -50,6 +55,15 @@
   padding: 1rem;
 }
 
-.description {
-  font-size: small;
+.logo {
+  width: 10%;
+  margin-right: 5%;
+  margin-top: 10%;
+}
+
+.logos {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }

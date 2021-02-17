@@ -33,7 +33,6 @@ export async function getPortfolioData() {
       ...matterResult.data
     }
   }))
-  console.log(portfolioData[0])
   // Sort projects by date
   return portfolioData.sort((a, b) => {
     if (a.date < b.date) {

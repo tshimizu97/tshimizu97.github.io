@@ -35,3 +35,8 @@ yarn-error.log*
 
 #mac
 .DS_Store
+
+# static export
+node_modules
+.next
+out

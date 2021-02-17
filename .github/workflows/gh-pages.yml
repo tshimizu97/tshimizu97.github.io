@@ -1,0 +1,51 @@
+name: github pages
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build-deploy:
+    # ubuntu OS
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+
+    # Node.js
+    - name: setup node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+
+    # npm install cache setting
+    - name: Cache dependencies
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    # install packages based on package.json
+    - name: install
+      run: npm install --frozen-lockfile
+
+    # build Next.js (create .next dir)
+    - name: build
+      run: npm run build
+
+    # static export
+    - name: export
+      run: npm run export
+
+    # create .nojekyll file in out dir
+    - name: add nojekyll
+      run: touch ./out/.nojekyll
+
+    # push out dir to gh-pages branch
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./out

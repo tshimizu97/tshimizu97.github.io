@@ -13,11 +13,14 @@ export default function Header(props) {
               About
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/Work">
             <a className={styles.header_element}>
               Work
             </a>
           </Link>
+          <a className={styles.header_element} href="cv.pdf" target="_blank">
+            CV
+          </a>
         </div>
     </header>
   )

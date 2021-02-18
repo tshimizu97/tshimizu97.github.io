@@ -9,14 +9,16 @@ export default function Home() {
         <title>Takao Shimizu</title>
       </Head>
 
-      <main className={styles.horizontal_container}>
-        <img
-          className={styles.item}
-          src="profile.jpeg"
-          alt="My Profile Pic"
-        />
+      <main className={styles.main_horizontal}>
+        <div className={styles.item_horizontal}>
+          <img
+            className={styles.image}
+            src="profile.jpeg"
+            alt="My Profile Pic"
+          />
+        </div>
 
-        <div className={styles.item}>
+        <div className={styles.item_horizontal}>
           <article className={styles.description}>
             <h1>
               Hi, I'm Takao Shimizu.

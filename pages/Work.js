@@ -21,22 +21,22 @@ export default function Home({ portfolioData }) {
   }
 
   return (
-    <div className={styles.container_scrollable}>
+    <div className={styles.container}>
       <Head>
         <title>Takao Shimizu</title>
       </Head>
 
-      <main className={styles.portfolio}>
+      <main className={styles.main_vertical}>
         {portfolioData.map(({ id, date, title, link, image, contentHtml }) => (
-          <div className={styles.product} key={id}>
-            <div className={styles.item}>
+          <div className={styles.item_vertical} key={id}>
+            <div className={styles.item_horizontal}>
               <img
-                className={styles.product_image}
+                className={styles.image}
                 src={image}
                 alt={image}
               />
             </div>
-            <div className={styles.item}>
+            <div className={styles.item_horizontal}>
               <h3>{title}</h3>
               <div className={styles.description} dangerouslySetInnerHTML={{ __html: contentHtml }} />
             </div>

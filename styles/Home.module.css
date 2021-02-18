@@ -1,24 +1,11 @@
+/* globally used design tags */
 .container {
-  height: 90vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-height: 90vh;
-}
-
-.container_scrollable {
   height: 90vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
-
-.description {
-  font-size: small;
 }
 
 .header {
@@ -29,9 +16,52 @@
   height: 10vh;
   margin: auto;
   width: 50%;
+  min-width: 600px;
   padding: 1.5rem;
 }
 
+.main_horizontal { /* this always contains two item_horizontal */
+  width: 50%;
+  min-width: 600px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  max-height: 100%;
+  padding: 3rem;
+  background-color: red;
+}
+
+.item_horizontal {
+  padding: 1rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100%;
+}
+
+.main_vertical { /* this can contain more than 2 items inside */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  min-width: 600px;
+}
+
+.item_vertical {
+  width: 100%;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 1;
+}
+
+/* header design tags */
 .header_element {
   padding: 0.5rem;
 }
@@ -41,33 +71,14 @@
 }
 
 .header_right {
-  display: flex;
   float: right;
+  display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
 }
 
-.horizontal_container {
-  width: 50%;
-  padding: 5rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-  flex-basis: 50%;
-}
-
-.item {
-  width: 50%;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* design tags for images */
 .logo {
   width: 10%;
   margin-right: 5%;
@@ -78,25 +89,29 @@
   display: inline-block;
 }
 
-.portfolio {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 50%;
-}
-
-.product {
-  width: 100%;
-  padding: 3rem 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex: 1;
-}
-
-.product_image {
+.image {
   max-height: 60vh;
   max-width: 100%;
+}
+
+/* design tags for texts */
+.description {
+  font-size: small;
+}
+
+@Media screen and (max-width: 600px) {
+  .header {
+    min-width: 100%;
+  }
+  .main_horizontal { /* make this vertical container */
+    flex-direction: column;
+    min-width: 100%;
+  }
+  .item_horizontal {
+    width: 100%;
+  }
+  .logo {
+    width: 5%;
+    min-width: 30px;
+  }
 }

@@ -1,4 +1,4 @@
-# Thee source code for my personal webpage
+# The source code for my personal webpage
 
 The website is hosted by GitHub Pages: https://tshimizu97.github.io
 

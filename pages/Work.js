@@ -12,6 +12,14 @@ export async function getStaticProps() {
 }
 
 export default function Home({ portfolioData }) {
+  function getTitle(title, link) {
+    if (link != 'na') {
+      return <a href="https://github.com/dsgelab/gmap-retrieval" target="_blank"><h2>{title}</h2></a>
+    } else {
+      return <h2>{title}</h2>
+    }
+  }
+
   return (
     <div className={styles.container_scrollable}>
       <Head>
@@ -19,17 +27,17 @@ export default function Home({ portfolioData }) {
       </Head>
 
       <main className={styles.portfolio}>
-        {portfolioData.map(({ id, date, title, image, contentHtml }) => (
+        {portfolioData.map(({ id, date, title, link, image, contentHtml }) => (
           <div className={styles.product} key={id}>
             <div className={styles.item}>
               <img
                 className={styles.product_image}
                 src={image}
-                alt={title}
+                alt={image}
               />
             </div>
             <div className={styles.item}>
-              <h2>{title}</h2>
+              <h3>{title}</h3>
               <div className={styles.description} dangerouslySetInnerHTML={{ __html: contentHtml }} />
             </div>
           </div>
